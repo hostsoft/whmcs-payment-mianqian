@@ -90,7 +90,9 @@ function wanyiwechat_link($params)
         'TimeOut' => '5'
     ];
 
-    require __DIR__.'/wanyi/Vpay.php';
+    if(!class_exists('Vpay')) {
+        require_once __DIR__ . '/wanyi/Vpay.php';
+    }
     $Pay = new \Vpay($parameter);
 
     # Merge Array
